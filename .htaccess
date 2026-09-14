@@ -1,0 +1,7 @@
+DirectoryIndex index.php index.html
+ErrorDocument 404 /404.html
+Options -Indexes
+
+<FilesMatch "\.(sql|md|zip|log|ini|env)$">
+  Require all denied
+</FilesMatch>
