@@ -38,11 +38,12 @@ if ($files && is_array($files['name'])) {
 }
 
 $dir=dirname(__DIR__).'/private/uploads'; if (!is_dir($dir) && !mkdir($dir,0750,true)) fail('Upload storage is unavailable.',500);
+$activationToken=bin2hex(random_bytes(24)); $activationHash=hash('sha256',$activationToken); $activationExpires=date('Y-m-d H:i:s',time()+7*86400);
 $pdo=db(); $stored=[];
 try {
  $pdo->beginTransaction();
- $stmt=$pdo->prepare('INSERT INTO registrations (country,other_country,role,other_role,name,company,email,details,language,consent_at) VALUES (?,?,?,?,?,?,?,?,?,?)');
- $stmt->execute([$country?:null,$country==='Other'?$otherCountry:null,$role?:null,$role==='other'?$otherRole:null,$name?:null,$company?:null,$email,$details,$language,value('consent')==='1'?date('Y-m-d H:i:s'):null]);
+ $stmt=$pdo->prepare('INSERT INTO registrations (country,other_country,role,other_role,name,company,email,details,language,consent_at,activation_token_hash,activation_expires_at,portal_status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)');
+ $stmt->execute([$country?:null,$country==='Other'?$otherCountry:null,$role?:null,$role==='other'?$otherRole:null,$name?:null,$company?:null,$email,$details,$language,value('consent')==='1'?date('Y-m-d H:i:s'):null,$activationHash,$activationExpires,'received']);
  $registrationId=(int)$pdo->lastInsertId();
  $fileStmt=$pdo->prepare('INSERT INTO registration_files (registration_id,original_name,stored_name,mime_type,file_size) VALUES (?,?,?,?,?)');
  foreach ($uploads as $file) { $storedName=bin2hex(random_bytes(16)).'.'.$file['ext']; $destination=$dir.'/'.$storedName; if (!move_uploaded_file($file['tmp'],$destination)) throw new RuntimeException('Could not store upload.'); $stored[]=$destination; $fileStmt->execute([$registrationId,$file['original'],$storedName,$file['mime'],$file['size']]); }
@@ -50,8 +51,14 @@ try {
  $subject='New SPECTECHNOLOGY network registration';
  $message="Registration #{$registrationId}\nCountry: {$country}".($otherCountry!==''?" ({$otherCountry})":'')."\nRole: {$role}".($otherRole!==''?" ({$otherRole})":'')."\nName: {$name}\nCompany: {$company}\nEmail: {$email}\nFiles: ".count($stored)."\n\n{$details}";
  @mail('office@spectechnology.pl',$subject,$message,"From: website@spectechnology.pl\r\nReply-To: {$email}\r\nContent-Type: text/plain; charset=UTF-8");
+ $activationUrl='https://spectechnology.pl/activate.php?token='.rawurlencode($activationToken);
+ $userSubject=$language==='pl'?'SPECTECHNOLOGY — otrzymaliśmy Twoje zgłoszenie':'SPECTECHNOLOGY — we received your application';
+ $userMessage=$language==='pl'?"Dziękujemy. Twoje zgłoszenie #{$registrationId} zostało otrzymane.\\n\\nJeśli chcesz utworzyć konto i śledzić status, użyj tego jednorazowego linku (ważny 7 dni):\\n{$activationUrl}":"Thank you. We received application #{$registrationId}.\\n\\nTo create an account and track its status, use this one-time link within 7 days:\\n{$activationUrl}";
+ @mail($email,$userSubject,$userMessage,"From: website@spectechnology.pl\\r\\nReply-To: office@spectechnology.pl\\r\\nContent-Type: text/plain; charset=UTF-8");
  echo json_encode(['ok'=>true,'id'=>$registrationId]);
 } catch (Throwable $e) { if ($pdo->inTransaction()) $pdo->rollBack(); foreach($stored as $path) @unlink($path); error_log($e->getMessage()); fail('Could not save registration.',500); }
+
+
 
 
 
