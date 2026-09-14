@@ -13,7 +13,7 @@ $country=value('country'); $otherCountry=value('other_country'); $role=value('ro
 $name=value('name'); $company=value('company'); $email=filter_var(value('email'), FILTER_VALIDATE_EMAIL); $details=value('details'); $language=value('language')==='pl'?'pl':'en';
 if ($country!=='' && !in_array($country,$countries,true)) fail('Invalid country.');
 if ($role!=='' && !in_array($role,$roles,true)) fail('Invalid role.');
-if (!$email || $details==='') fail('Please complete all required fields.');
+if (!$email || $details==='' || value('consent')!=='1') fail('Please complete all required fields and accept contact consent.');
 if (mb_strlen($name)>160 || mb_strlen($company)>200 || mb_strlen($details)>5000 || mb_strlen($otherCountry)>120 || mb_strlen($otherRole)>160) fail('One or more fields are too long.');
 
 $allowed=[
@@ -52,6 +52,8 @@ try {
  @mail('office@spectechnology.pl',$subject,$message,"From: website@spectechnology.pl\r\nReply-To: {$email}\r\nContent-Type: text/plain; charset=UTF-8");
  echo json_encode(['ok'=>true,'id'=>$registrationId]);
 } catch (Throwable $e) { if ($pdo->inTransaction()) $pdo->rollBack(); foreach($stored as $path) @unlink($path); error_log($e->getMessage()); fail('Could not save registration.',500); }
+
+
 
 
 
