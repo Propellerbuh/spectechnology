@@ -11,10 +11,9 @@ $countries=['Ireland','Poland','Other'];
 $roles=['private_client','developer','architect','construction_company','main_contractor','timber_frame_manufacturer','modular_manufacturer','mobile_home_manufacturer','component_supplier','installer','engineer','planning_consultant','surveyor','logistics','estate_agent','investor','public_body','industry_association','other'];
 $country=value('country'); $otherCountry=value('other_country'); $role=value('role'); $otherRole=value('other_role');
 $name=value('name'); $company=value('company'); $email=filter_var(value('email'), FILTER_VALIDATE_EMAIL); $details=value('details'); $language=value('language')==='pl'?'pl':'en';
-if (!in_array($country,$countries,true) || !in_array($role,$roles,true)) fail('Invalid country or role.');
-if ($country==='Other' && $otherCountry==='') fail('Please provide the country name.');
-if ($role==='other' && $otherRole==='') fail('Please describe your role.');
-if ($name==='' || !$email || $details==='' || value('consent')!=='1') fail('Please complete all required fields.');
+if ($country!=='' && !in_array($country,$countries,true)) fail('Invalid country.');
+if ($role!=='' && !in_array($role,$roles,true)) fail('Invalid role.');
+if (!$email || $details==='') fail('Please complete all required fields.');
 if (mb_strlen($name)>160 || mb_strlen($company)>200 || mb_strlen($details)>5000 || mb_strlen($otherCountry)>120 || mb_strlen($otherRole)>160) fail('One or more fields are too long.');
 
 $allowed=[
@@ -42,8 +41,8 @@ $dir=dirname(__DIR__).'/private/uploads'; if (!is_dir($dir) && !mkdir($dir,0750,
 $pdo=db(); $stored=[];
 try {
  $pdo->beginTransaction();
- $stmt=$pdo->prepare('INSERT INTO registrations (country,other_country,role,other_role,name,company,email,details,language,consent_at) VALUES (?,?,?,?,?,?,?,?,?,NOW())');
- $stmt->execute([$country,$country==='Other'?$otherCountry:null,$role,$role==='other'?$otherRole:null,$name,$company?:null,$email,$details,$language]);
+ $stmt=$pdo->prepare('INSERT INTO registrations (country,other_country,role,other_role,name,company,email,details,language,consent_at) VALUES (?,?,?,?,?,?,?,?,?,?)');
+ $stmt->execute([$country?:null,$country==='Other'?$otherCountry:null,$role?:null,$role==='other'?$otherRole:null,$name?:null,$company?:null,$email,$details,$language,value('consent')==='1'?date('Y-m-d H:i:s'):null]);
  $registrationId=(int)$pdo->lastInsertId();
  $fileStmt=$pdo->prepare('INSERT INTO registration_files (registration_id,original_name,stored_name,mime_type,file_size) VALUES (?,?,?,?,?)');
  foreach ($uploads as $file) { $storedName=bin2hex(random_bytes(16)).'.'.$file['ext']; $destination=$dir.'/'.$storedName; if (!move_uploaded_file($file['tmp'],$destination)) throw new RuntimeException('Could not store upload.'); $stored[]=$destination; $fileStmt->execute([$registrationId,$file['original'],$storedName,$file['mime'],$file['size']]); }
@@ -53,3 +52,7 @@ try {
  @mail('office@spectechnology.pl',$subject,$message,"From: website@spectechnology.pl\r\nReply-To: {$email}\r\nContent-Type: text/plain; charset=UTF-8");
  echo json_encode(['ok'=>true,'id'=>$registrationId]);
 } catch (Throwable $e) { if ($pdo->inTransaction()) $pdo->rollBack(); foreach($stored as $path) @unlink($path); error_log($e->getMessage()); fail('Could not save registration.',500); }
+
+
+
+

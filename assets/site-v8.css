@@ -1,0 +1,4 @@
+@import url('site-v6.css');
+.brand .logo-light{filter:brightness(0) invert(1)}
+.brand .logo-dark{filter:brightness(0) saturate(100%) invert(88%) sepia(59%) saturate(589%) hue-rotate(35deg) brightness(103%) contrast(91%)}
+html[data-theme="dark"] footer .logo-dark{filter:brightness(0) saturate(100%) invert(88%) sepia(59%) saturate(589%) hue-rotate(35deg) brightness(103%) contrast(91%)}

@@ -1,0 +1,20 @@
+@import url('site-v8.css');
+
+html[data-theme="dark"] body{background:#07110d!important;color:#f6f8f5!important}
+html[data-theme="dark"] .dark,html[data-theme="dark"] section.dark,html[data-theme="dark"] .closing{background:#06100c!important;color:#f8faf7!important}
+html[data-theme="dark"] .dark h2,html[data-theme="dark"] .dark strong,html[data-theme="dark"] .dark .eyebrow,html[data-theme="dark"] .closing h2{color:#fff!important}
+html[data-theme="dark"] .dark li{border-color:#506159!important}html[data-theme="dark"] .dark li p{color:#c8d3ce!important}
+html[data-theme="dark"] .intro,html[data-theme="dark"] .network,html[data-theme="dark"] .news,html[data-theme="dark"] .platform{background:#091611!important;color:#f7f9f6!important}
+html[data-theme="dark"] .intro p,html[data-theme="dark"] .network p,html[data-theme="dark"] .news p,html[data-theme="dark"] .platform p{color:#c0cec7!important}
+html[data-theme="dark"] .cards article,html[data-theme="dark"] .event,html[data-theme="dark"] .news-grid>a{background:#10241d!important;color:#f9fbf8!important;border-color:#3d5b4e!important}
+html[data-theme="dark"] .cards small{background:#c8f169!important;color:#071812!important;border:1px solid #dfff92}
+html[data-theme="dark"] .link{color:#f8faf7!important;border-color:#4c695c!important}
+html[data-theme="dark"] .primary{background:#b6ed45!important;color:#071812!important;border-color:#d9ff8e!important;box-shadow:0 5px 18px #9de72f20}
+html[data-theme="dark"] .primary:hover{background:#d2ff72!important;box-shadow:0 12px 30px #a9ef3b55;transform:translateY(-4px) scale(1.025)}
+html[data-theme="dark"] .glass{background:#14251fe8!important;color:#fff!important;border-color:#d3ddd8!important}html[data-theme="dark"] .glass:hover{background:#244136!important}
+html[data-theme="dark"] .language .active{background:#c8f169!important;color:#071812!important}html[data-theme="dark"] .language button:not(.active){color:#fff!important}
+html[data-theme="light"] .primary{color:#071812!important}html[data-theme="light"] .language .active{color:#10241d!important}
+.actions button:hover{transform:translateY(-5px) scale(1.035);box-shadow:0 14px 30px #0006}.actions button:active{transform:translateY(1px) scale(.98)}
+.cards .link:hover{padding-left:8px;color:var(--lime)}.read-more:hover{transform:translateX(6px);opacity:1}
+.footer-brand{width:190px}.footer-brand img{width:190px;max-height:55px;object-fit:contain}
+@media(max-width:700px){html[data-theme="dark"] .hero-copy>p{color:#fff}.actions button{box-shadow:0 8px 20px #0004}}

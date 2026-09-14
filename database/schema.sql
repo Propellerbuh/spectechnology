@@ -1,15 +1,15 @@
 CREATE TABLE IF NOT EXISTS registrations (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  country VARCHAR(40) NOT NULL,
+  country VARCHAR(40) NULL,
   other_country VARCHAR(120) NULL,
-  role VARCHAR(80) NOT NULL,
+  role VARCHAR(80) NULL,
   other_role VARCHAR(160) NULL,
-  name VARCHAR(160) NOT NULL,
+  name VARCHAR(160) NULL,
   company VARCHAR(200) NULL,
   email VARCHAR(254) NOT NULL,
   details TEXT NOT NULL,
   language ENUM('en','pl') NOT NULL DEFAULT 'en',
-  consent_at DATETIME NOT NULL,
+  consent_at DATETIME NULL,
   status ENUM('new','reviewed','approved','archived') NOT NULL DEFAULT 'new',
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -27,3 +27,5 @@ CREATE TABLE IF NOT EXISTS registration_files (
   PRIMARY KEY (id), UNIQUE KEY uq_registration_files_stored (stored_name), KEY idx_registration_files_registration (registration_id),
   CONSTRAINT fk_registration_files_registration FOREIGN KEY (registration_id) REFERENCES registrations(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+

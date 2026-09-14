@@ -1,0 +1,4 @@
+@import url('site-v9.css');
+html[lang="pl"] .hero h1{font-size:clamp(3.15rem,6.45vw,6.25rem);line-height:.9;letter-spacing:-.052em;max-width:880px;overflow-wrap:normal}
+@media(max-width:960px){html[lang="pl"] .hero h1{font-size:clamp(3rem,8.2vw,5rem);max-width:92vw}}
+@media(max-width:700px){html[lang="pl"] .hero h1{font-size:clamp(2.75rem,12vw,3.55rem);line-height:.93;letter-spacing:-.045em}html[lang="pl"] .hero-copy{margin-bottom:145px}}
