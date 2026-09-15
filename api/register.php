@@ -53,8 +53,8 @@ try {
  @mail('office@spectechnology.pl',$subject,$message,"From: website@spectechnology.pl\r\nReply-To: {$email}\r\nContent-Type: text/plain; charset=UTF-8");
  $activationUrl='https://spectechnology.pl/activate.php?token='.rawurlencode($activationToken);
  $userSubject=$language==='pl'?'SPECTECHNOLOGY — otrzymaliśmy Twoje zgłoszenie':'SPECTECHNOLOGY — we received your application';
- $userMessage=$language==='pl'?"Dziękujemy. Twoje zgłoszenie #{$registrationId} zostało otrzymane.\\n\\nJeśli chcesz utworzyć konto i śledzić status, użyj tego jednorazowego linku (ważny 7 dni):\\n{$activationUrl}":"Thank you. We received application #{$registrationId}.\\n\\nTo create an account and track its status, use this one-time link within 7 days:\\n{$activationUrl}";
- @mail($email,$userSubject,$userMessage,"From: website@spectechnology.pl\\r\\nReply-To: office@spectechnology.pl\\r\\nContent-Type: text/plain; charset=UTF-8");
+ $userMessage=$language==='pl'?"Dziękujemy. Twoje zgłoszenie #{$registrationId} zostało otrzymane.\n\nJeśli chcesz utworzyć konto i śledzić status, użyj tego jednorazowego linku (ważny 7 dni):\n{$activationUrl}":"Thank you. We received application #{$registrationId}.\n\nTo create an account and track its status, use this one-time link within 7 days:\n{$activationUrl}";
+ @mail($email,$userSubject,$userMessage,"From: office@spectechnology.pl\r\nReply-To: office@spectechnology.pl\r\nContent-Type: text/plain; charset=UTF-8");
  echo json_encode(['ok'=>true,'id'=>$registrationId]);
 } catch (Throwable $e) { if ($pdo->inTransaction()) $pdo->rollBack(); foreach($stored as $path) @unlink($path); error_log($e->getMessage()); fail('Could not save registration.',500); }
 
