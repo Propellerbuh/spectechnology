@@ -29,7 +29,7 @@ if ($files && is_array($files['name'])) {
  if (count($files['name'])>5) fail('Maximum 5 files.');
  $finfo=new finfo(FILEINFO_MIME_TYPE);
  foreach ($files['name'] as $i=>$original) {
-  $error=(int)$files['error'][$i]; if ($error===UPLOAD_ERR_NO_FILE) continue; if ($error!==UPLOAD_ERR_OK) fail('File upload failed.');
+  $error=(int)$files['error'][$i]; if ($error===UPLOAD_ERR_NO_FILE) continue; if ($error!==UPLOAD_ERR_OK) { $uploadErrors=[UPLOAD_ERR_INI_SIZE=>'The file exceeds the server upload limit.',UPLOAD_ERR_FORM_SIZE=>'The file exceeds the form upload limit.',UPLOAD_ERR_PARTIAL=>'The file was uploaded only partially.',UPLOAD_ERR_NO_TMP_DIR=>'The server temporary upload directory is unavailable.',UPLOAD_ERR_CANT_WRITE=>'The server could not write the uploaded file.',UPLOAD_ERR_EXTENSION=>'The upload was stopped by a server extension.']; fail(($uploadErrors[$error] ?? 'File upload failed.').' (code '.$error.')'); }
   $size=(int)$files['size'][$i]; if ($size<1 || $size>10*1024*1024) fail('Each file must be 10 MB or smaller.');
   $ext=strtolower(pathinfo((string)$original,PATHINFO_EXTENSION)); $tmp=(string)$files['tmp_name'][$i]; $mime=$finfo->file($tmp) ?: '';
   if (!isset($allowed[$ext]) || !in_array($mime,$allowed[$ext],true)) fail('Unsupported or mismatched file format.');
