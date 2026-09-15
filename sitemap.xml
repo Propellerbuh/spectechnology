@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://spectechnology.pl/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://spectechnology.pl/en/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://spectechnology.pl/pl/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://spectechnology.pl/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://spectechnology.pl/cookies.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://spectechnology.pl/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

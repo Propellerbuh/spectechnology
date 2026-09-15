@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /dashboard.php
+Disallow: /activate.php
+Disallow: /forgot-password.php
+
+Sitemap: https://spectechnology.pl/sitemap.xml

@@ -1,0 +1,1 @@
+<?php $_GET['lang']='pl'; require dirname(__DIR__).'/index.php';
