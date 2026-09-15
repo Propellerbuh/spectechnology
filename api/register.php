@@ -16,6 +16,7 @@ if ($country!=='' && !in_array($country,$countries,true)) fail('Invalid country.
 if ($role!=='' && !in_array($role,$roles,true)) fail('Invalid role.');
 if (!$email || $details==='' || value('consent')!=='1') fail('Please complete all required fields and accept contact consent.');
 if (mb_strlen($name)>160 || mb_strlen($company)>200 || mb_strlen($details)>5000 || mb_strlen($otherCountry)>120 || mb_strlen($otherRole)>160) fail('One or more fields are too long.');
+$existingAccount=db()->prepare('SELECT id FROM users WHERE email=? AND active=1'); $existingAccount->execute([$email]); $existingUserId=(int)($existingAccount->fetchColumn()?:0); if($existingUserId && !$linkedUserId) fail('An account with this email already exists. Please sign in or use Forgot password.',409);
 
 $allowed=[
  'pdf'=>['application/pdf'], 'doc'=>['application/msword','application/octet-stream'],
