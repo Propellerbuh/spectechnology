@@ -2,7 +2,7 @@
 declare(strict_types=1);
 header('Content-Type: application/json; charset=utf-8');
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error'=>'Method not allowed']); exit; }
-require __DIR__ . '/db.php';
+require __DIR__ . '/auth.php';
 
 function fail(string $message, int $status=422): never { http_response_code($status); echo json_encode(['error'=>$message]); exit; }
 function value(string $key): string { return trim((string)($_POST[$key] ?? '')); }
@@ -11,6 +11,7 @@ $countries=['Ireland','Poland','Other'];
 $roles=['private_client','developer','architect','construction_company','main_contractor','timber_frame_manufacturer','modular_manufacturer','mobile_home_manufacturer','component_supplier','installer','engineer','planning_consultant','surveyor','logistics','estate_agent','investor','public_body','industry_association','other'];
 $country=value('country'); $otherCountry=value('other_country'); $role=value('role'); $otherRole=value('other_role');
 $name=value('name'); $company=value('company'); $email=filter_var(value('email'), FILTER_VALIDATE_EMAIL); $details=value('details'); $language=value('language')==='pl'?'pl':'en';
+$signedIn=current_user(); $linkedUserId=($signedIn && $email && strcasecmp((string)$signedIn['email'],(string)$email)===0)?(int)$signedIn['id']:null;
 if ($country!=='' && !in_array($country,$countries,true)) fail('Invalid country.');
 if ($role!=='' && !in_array($role,$roles,true)) fail('Invalid role.');
 if (!$email || $details==='' || value('consent')!=='1') fail('Please complete all required fields and accept contact consent.');
@@ -42,8 +43,8 @@ $activationToken=bin2hex(random_bytes(24)); $activationHash=hash('sha256',$activ
 $pdo=db(); $stored=[];
 try {
  $pdo->beginTransaction();
- $stmt=$pdo->prepare('INSERT INTO registrations (country,other_country,role,other_role,name,company,email,details,language,consent_at,activation_token_hash,activation_expires_at,portal_status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)');
- $stmt->execute([$country?:null,$country==='Other'?$otherCountry:null,$role?:null,$role==='other'?$otherRole:null,$name?:null,$company?:null,$email,$details,$language,value('consent')==='1'?date('Y-m-d H:i:s'):null,$activationHash,$activationExpires,'received']);
+ $stmt=$pdo->prepare('INSERT INTO registrations (country,other_country,role,other_role,name,company,email,details,language,consent_at,activation_token_hash,activation_expires_at,portal_status,user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+ $stmt->execute([$country?:null,$country==='Other'?$otherCountry:null,$role?:null,$role==='other'?$otherRole:null,$name?:null,$company?:null,$email,$details,$language,value('consent')==='1'?date('Y-m-d H:i:s'):null,$linkedUserId?null:$activationHash,$linkedUserId?null:$activationExpires,'received',$linkedUserId]);
  $registrationId=(int)$pdo->lastInsertId();
  $fileStmt=$pdo->prepare('INSERT INTO registration_files (registration_id,original_name,stored_name,mime_type,file_size) VALUES (?,?,?,?,?)');
  foreach ($uploads as $file) { $storedName=bin2hex(random_bytes(16)).'.'.$file['ext']; $destination=$dir.'/'.$storedName; if (!move_uploaded_file($file['tmp'],$destination)) throw new RuntimeException('Could not store upload.'); $stored[]=$destination; $fileStmt->execute([$registrationId,$file['original'],$storedName,$file['mime'],$file['size']]); }
@@ -53,7 +54,7 @@ try {
  $officeMailQueued=@mail('office@spectechnology.pl',$subject,$message,"From: office@spectechnology.pl\r\nReply-To: {$email}\r\nContent-Type: text/plain; charset=UTF-8",'-f office@spectechnology.pl');
  $activationUrl='https://spectechnology.pl/activate.php?token='.rawurlencode($activationToken);
  $userSubject=$language==='pl'?'SPECTECHNOLOGY — otrzymaliśmy Twoje zgłoszenie':'SPECTECHNOLOGY — we received your application';
- $userMessage=$language==='pl'?"Dziękujemy. Twoje zgłoszenie #{$registrationId} zostało otrzymane.\n\nJeśli chcesz utworzyć konto i śledzić status, użyj tego jednorazowego linku (ważny 7 dni):\n{$activationUrl}":"Thank you. We received application #{$registrationId}.\n\nTo create an account and track its status, use this one-time link within 7 days:\n{$activationUrl}";
+ $accountUrl='https://spectechnology.pl/dashboard.php'; $userMessage=$linkedUserId?($language==='pl'?"Dziękujemy. Twoje zgłoszenie #{$registrationId} zostało otrzymane i jest już widoczne na Twoim koncie:\n{$accountUrl}":"Thank you. Application #{$registrationId} was received and is already visible in your account:\n{$accountUrl}"):($language==='pl'?"Dziękujemy. Twoje zgłoszenie #{$registrationId} zostało otrzymane.\n\nJeśli chcesz utworzyć konto i śledzić status, użyj tego jednorazowego linku (ważny 7 dni):\n{$activationUrl}":"Thank you. We received application #{$registrationId}.\n\nTo create an account and track its status, use this one-time link within 7 days:\n{$activationUrl}");
  $userMailQueued=@mail($email,$userSubject,$userMessage,"From: office@spectechnology.pl\r\nReply-To: office@spectechnology.pl\r\nContent-Type: text/plain; charset=UTF-8",'-f office@spectechnology.pl'); if(!$officeMailQueued||!$userMailQueued) error_log('Registration mail was not accepted by local mail transport.');
  echo json_encode(['ok'=>true,'id'=>$registrationId,'mail_queued'=>$userMailQueued]);
 } catch (Throwable $e) { if ($pdo->inTransaction()) $pdo->rollBack(); foreach($stored as $path) @unlink($path); error_log($e->getMessage()); fail('Could not save registration.',500); }
