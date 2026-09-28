@@ -11,7 +11,7 @@ $organization=['@context'=>'https://schema.org','@graph'=>[['@type'=>'Organizati
 <html lang="<?=$lang?>" data-forced-lang="<?=$lang?>">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,viewport-fit=cover">
 <base href="/">
 <title>
 <?=htmlspecialchars($title,ENT_QUOTES,'UTF-8')?>
@@ -40,11 +40,11 @@ $organization=['@context'=>'https://schema.org','@graph'=>[['@type'=>'Organizati
 </script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310241d'/%3E%3Cpath d='M12 35 32 17l20 18v14H39V35H25v14H12z' fill='%23c8f169'/%3E%3C/svg%3E">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('spectechnology-theme')==='dark'?'dark':'light'}catch(e){}</script>
-<link rel="stylesheet" href="/assets/site-prod.css">
-<link rel="stylesheet" href="/assets/assistant.css">
-<script src="/assets/site-prod.js" defer>
+<link rel="stylesheet" href="/assets/site-prod.css?v=6656414">
+<link rel="stylesheet" href="/assets/assistant.css?v=6656414">
+<script src="/assets/site-prod.js?v=6656414" defer>
 </script>
-<script src="/assets/assistant.js" defer>
+<script src="/assets/assistant.js?v=6656414" defer>
 </script>
 </head>
 <body>
@@ -548,7 +548,6 @@ $organization=['@context'=>'https://schema.org','@graph'=>[['@type'=>'Organizati
 </dialog>
 </body>
 </html>
-
 
 
 
