@@ -6,28 +6,548 @@ $canonical=$isLanguagePath?'https://spectechnology.pl/'.$lang.'/':'https://spect
 $title=$lang==='pl'?'SPECTECHNOLOGY — Projekt w Irlandii. Produkcja w Polsce.':'SPECTECHNOLOGY — Designed in Ireland. Made in Poland.';
 $description=$lang==='pl'?'Łączymy irlandzkich klientów i architektów z polskimi producentami indywidualnych zestawów domów szkieletowych.':'SPECTECHNOLOGY connects Irish projects and architects with Polish manufacturers of bespoke timber-frame house kits.';
 $organization=['@context'=>'https://schema.org','@graph'=>[['@type'=>'Organization','@id'=>'https://spectechnology.pl/#organization','name'=>'SPECTECHNOLOGY S.A.','url'=>'https://spectechnology.pl/','email'=>'office@spectechnology.pl','address'=>['@type'=>'PostalAddress','streetAddress'=>'ul. Fort Wola 22','postalCode'=>'01-258','addressLocality'=>'Warszawa','addressCountry'=>'PL']],['@type'=>'WebSite','@id'=>'https://spectechnology.pl/#website','url'=>'https://spectechnology.pl/','name'=>'SPECTECHNOLOGY','publisher'=>['@id'=>'https://spectechnology.pl/#organization'],'inLanguage'=>['en','pl']]]];
-?><!doctype html><html lang="<?=$lang?>" data-forced-lang="<?=$lang?>"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="/"><title><?=htmlspecialchars($title,ENT_QUOTES,'UTF-8')?></title><meta name="description" content="<?=htmlspecialchars($description,ENT_QUOTES,'UTF-8')?>"><meta name="theme-color" content="#10241d"><link rel="canonical" href="<?=$canonical?>"><link rel="alternate" hreflang="en" href="https://spectechnology.pl/en/"><link rel="alternate" hreflang="pl" href="https://spectechnology.pl/pl/"><link rel="alternate" hreflang="x-default" href="https://spectechnology.pl/"><meta property="og:type" content="website"><meta property="og:site_name" content="SPECTECHNOLOGY"><meta property="og:locale" content="<?=$lang==='pl'?'pl_PL':'en_IE'?>"><meta property="og:title" content="<?=htmlspecialchars($title,ENT_QUOTES,'UTF-8')?>"><meta property="og:description" content="<?=htmlspecialchars($description,ENT_QUOTES,'UTF-8')?>"><meta property="og:url" content="<?=$canonical?>"><meta property="og:image" content="https://spectechnology.pl/assets/images/hero-ireland-1200.webp"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="<?=htmlspecialchars($title,ENT_QUOTES,'UTF-8')?>"><meta name="twitter:description" content="<?=htmlspecialchars($description,ENT_QUOTES,'UTF-8')?>"><meta name="twitter:image" content="https://spectechnology.pl/assets/images/hero-ireland-1200.webp"><script type="application/ld+json"><?=json_encode($organization,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE)?></script><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310241d'/%3E%3Cpath d='M12 35 32 17l20 18v14H39V35H25v14H12z' fill='%23c8f169'/%3E%3C/svg%3E"><script>try{document.documentElement.dataset.theme=localStorage.getItem('spectechnology-theme')==='dark'?'dark':'light'}catch(e){}</script><link rel="stylesheet" href="/assets/site-prod.css"><script src="/assets/site-prod.js" defer></script></head><body>
-<header class="site-header"><a class="brand" href="#top"><img class="logo-light" src="noBgColor-light.png" alt="SPECTECHNOLOGY S.A."><img class="logo-dark" src="noBgColor-dark.png" alt=""></a><nav><a href="#how" data-i18n="nav.how">How it works</a><a href="#network" data-i18n="nav.for">Who it is for</a><a href="#ireland">Ireland</a><a href="#news" data-i18n="nav.news">News</a><a href="#insights" data-i18n="nav.insights">Insights</a></nav><div class="header-actions"><div class="language"><button data-lang="en" class="active">EN</button><button data-lang="pl">PL</button></div><button class="theme-toggle" type="button" aria-label="Use dark theme">☾</button><a class="outline login-link" href="/login.php" data-i18n="nav.login">Sign in</a><button class="outline open-register" data-role="private_client" data-i18n="nav.join">Join the network</button><button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button></div></header>
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true"><button class="menu-close" aria-label="Close menu">×</button><a class="mobile-login" href="/login.php" data-i18n="nav.login">Sign in</a><a href="#how" data-i18n="nav.how">How it works</a><a href="#network" data-i18n="nav.for">Who it is for</a><a href="#ireland">Ireland</a><a href="#news" data-i18n="nav.news">News</a><a href="#insights" data-i18n="nav.insights">Insights</a><button class="primary open-register" data-role="private_client" data-i18n="nav.join">Join the network</button></div>
-<main id="top"><section class="hero"><picture><source type="image/webp" srcset="/assets/images/hero-ireland-720.webp 720w, /assets/images/hero-ireland-1200.webp 1200w, /assets/images/hero-ireland-1672.webp 1672w" sizes="100vw"><img src="/assets/images/hero-ireland.png" width="1672" height="941" alt="Contemporary timber-frame home in Ireland" fetchpriority="high" decoding="async"></picture><div class="shade"></div><div class="hero-copy"><p class="eyebrow" data-i18n="hero.eye">POLAND × IRELAND · TIMBER-FRAME HOMES</p><h1 data-i18n="hero.title">Designed in Ireland. Made in Poland.</h1><p data-i18n="hero.text">We connect Irish clients and architects with Polish manufacturers who engineer and produce bespoke timber-frame house kits for delivery and installation in Ireland.</p><div class="actions"><button class="primary open-register" data-role="private_client" data-i18n="hero.project">I have a project</button><button class="glass open-register" data-role="timber_frame_manufacturer" data-i18n="hero.maker">I manufacture in Poland</button></div></div><div class="hero-note hero-route"><span class="country-map"><img src="assets/images/poland-flag-map.svg" alt="Poland"></span><span class="route-arrow">→</span><span class="country-map ireland-map"><img src="assets/images/ireland-flag-map.svg" alt="Ireland"></span><span data-i18n="hero.note">One route from architectural brief to installed structure.</span></div></section>
-<section class="intro layout"><span class="index">01 — THE BRIDGE</span><div><h2 data-i18n="intro.title">Not a crew sent abroad. A home engineered before it travels.</h2><p data-i18n="intro.text">The concept starts in Ireland. A qualified Polish partner translates it into a compliant timber-frame package, manufactures it under controlled conditions and prepares it for transport and efficient on-site assembly.</p></div></section>
-<section id="how" class="split dark"><div class="photo"><picture><source type="image/webp" srcset="/assets/images/factory-poland-720.webp 720w, /assets/images/factory-poland-1200.webp 1200w, /assets/images/factory-poland-1448.webp 1448w" sizes="(max-width:960px) 100vw, 54vw"><img src="/assets/images/factory-poland.png" width="1448" height="1086" alt="Timber-frame panel production in Poland" loading="lazy" decoding="async"></picture></div><div class="split-copy"><p class="eyebrow" data-i18n="process.eye">MADE TO THE IRISH BRIEF</p><h2 data-i18n="process.title">A controlled manufacturing process in Poland.</h2><ol><li><b>01</b><div><strong data-i18n="process.a">Qualify the project</strong><p data-i18n="process.at">Site, brief, programme and budget.</p></div></li><li><b>02</b><div><strong data-i18n="process.b">Align the design</strong><p data-i18n="process.bt">Architect, manufacturer and Irish requirements.</p></div></li><li><b>03</b><div><strong data-i18n="process.c">Manufacture the kit</strong><p data-i18n="process.ct">Bespoke frame and panels produced in Poland.</p></div></li><li><b>04</b><div><strong data-i18n="process.d">Deliver and install</strong><p data-i18n="process.dt">Planned transport and assembly in Ireland.</p></div></li></ol></div></section>
-<section id="network" class="network layout"><span class="index">02 — NETWORK</span><div><h2 data-i18n="network.title">One platform. Three ways in.</h2><div class="cards"><article><small>IRELAND</small><h3 data-i18n="network.client">Clients & developers</h3><p data-i18n="network.clientText">Bring a site, a need or a concept. We identify a suitable production route and Polish partners.</p><button class="link open-register" data-role="private_client" data-i18n="network.clientCta">Register a project →</button></article><article><small>IRELAND</small><h3 data-i18n="network.arch">Architects</h3><p data-i18n="network.archText">Include real Polish manufacturing capabilities, systems and logistics from the first concept.</p><button class="link open-register" data-role="architect" data-i18n="network.archCta">Join as an architect →</button></article><article><small>POLSKA + WORLD</small><h3 data-i18n="network.maker">Manufacturers & partners</h3><p data-i18n="network.makerText">Present your capability, references and documentation to qualified project enquiries.</p><button class="link open-register" data-role="timber_frame_manufacturer" data-i18n="network.makerCta">Become a partner →</button></article></div></div></section>
-<section class="transport"><picture><source type="image/webp" srcset="/assets/images/poland-ireland-logistics-720.webp 720w, /assets/images/poland-ireland-logistics-1200.webp 1200w, /assets/images/poland-ireland-logistics-1942.webp 1942w" sizes="100vw"><img src="/assets/images/poland-ireland-logistics.png" width="1942" height="809" alt="Modular home transported from Poland to Ireland" loading="lazy" decoding="async"></picture><div><p class="eyebrow">POLAND → IRELAND</p><h2 data-i18n="transport.title">The house travels. The process stays connected.</h2><p data-i18n="transport.text">SPECTECHNOLOGY coordinates the commercial and technical dialogue between the Irish brief and the Polish production team.</p></div></section>
-<section id="ireland" class="split garden"><div class="photo"><picture><source type="image/webp" srcset="/assets/images/auxiliary-home-ireland-720.webp 720w, /assets/images/auxiliary-home-ireland-1200.webp 1200w, /assets/images/auxiliary-home-ireland-1448.webp 1448w" sizes="(max-width:960px) 100vw, 54vw"><img src="/assets/images/auxiliary-home-ireland.png" width="1448" height="1086" alt="Compact auxiliary home in an Irish garden" loading="lazy" decoding="async"></picture></div><div class="split-copy"><p class="eyebrow" data-i18n="garden.eye">A NEW IRISH OPPORTUNITY</p><h2 data-i18n="garden.title">Compact auxiliary homes, ready for a smarter supply chain.</h2><p data-i18n="garden.text">Ireland has introduced an exempted-development route for certain detached auxiliary homes, while building regulations and detailed site conditions still apply.</p><div class="policy"><b>32–45 m²</b><span data-i18n="garden.note">floor-area range — eligibility must be checked for each property</span></div><a href="https://www.gov.ie/en/department-of-housing-local-government-and-heritage/press-releases/government-announces-changes-to-planning-exemptions-regulations/" target="_blank" rel="noopener" data-i18n="garden.source">Official government information ↗</a></div></section>
-<section id="news" class="news layout"><span class="index">04 — NEWS & EVENTS</span><div><h2 data-i18n="news.title">Where the market meets next.</h2><p class="news-lead" data-i18n="news.lead">Upcoming events and recent developments relevant to timber-frame and off-site housing in Poland and Ireland.</p><h3 class="subhead" data-i18n="news.events">Upcoming events</h3><div class="event-grid"><article class="event"><span>19–20.09.2026 · GLIWICE</span><h3>Śląskie Targi Domów Szkieletowych, Modułowych i Mobilnych</h3><p>PreZero Arena Gliwice · ul. Akademicka 50</p><a class="read-more" data-article="gliwice-2026" target="_blank" rel="noopener" data-i18n="news.readMore">Learn more →</a></article><article class="event"><span>25–27.09.2026 · POZNAŃ</span><h3>Wielkie Targi Domów Szkieletowych, Modułowych i Mobilnych</h3><p data-i18n="news.poznan">A major Polish meeting point for manufacturers, buyers and modern-home technologies.</p><a class="read-more" data-article="poznan-2026" target="_blank" rel="noopener" data-i18n="news.readMore">Learn more →</a></article></div><h3 class="subhead" data-i18n="news.latest">Latest market news</h3><div class="news-grid"><a data-article="yardbox-bothan" target="_blank" rel="noopener"><span>10.09.2026 · IRELAND</span><h3>YardBox launches the Bothán modular garden home</h3><p data-i18n="news.n1">A design-led compact dwelling enters the market as Irish planning rules evolve.</p><span class="read-more" data-i18n="news.readMore">Learn more →</span></a><a data-article="glenveagh-mmc" target="_blank" rel="noopener"><span>19.08.2026 · IRELAND</span><h3>€859k for scaling modern construction</h3><p data-i18n="news.n2">Enterprise Ireland backs timber-frame, light-gauge steel and automated finishing R&D.</p><span class="read-more" data-i18n="news.readMore">Learn more →</span></a><a data-article="irish-one-off-growth" target="_blank" rel="noopener"><span>20.07.2026 · IRELAND</span><h3>Timber-frame one-off starts rise 22%</h3><p data-i18n="news.n3">Timber-frame starts increased from 83 to 101 homes in the first half of 2026.</p><span class="read-more" data-i18n="news.readMore">Learn more →</span></a><a data-article="garden-homes-debate" target="_blank" rel="noopener"><span>14.07.2026 · IRELAND</span><h3>Debate around garden modular homes</h3><p data-i18n="news.n4">New supply opportunities arrive alongside questions about standards and tenant protections.</p><span class="read-more" data-i18n="news.readMore">Learn more →</span></a></div></div></section>
-<section id="insights" class="insights"><div><p class="eyebrow" data-i18n="insights.eye">MARKET SIGNALS</p><h2 data-i18n="insights.title">Why the Poland–Ireland bridge matters now.</h2></div><div class="insight-list"><article><b>+36%</b><p data-i18n="insights.i1">Latest available H1 2026 comparison: Irish one-off housing starts rose 36%.</p></article><article><b>+22%</b><p data-i18n="insights.i2">Growth in timber-frame starts within that segment.</p></article><article><b>32–45 m²</b><p data-i18n="insights.i3">Auxiliary-dwelling opportunity, subject to site and regulatory conditions.</p></article></div></section>
-<section class="platform layout"><span class="index">05 — PLATFORM</span><div><h2 data-i18n="platform.title">A bilingual marketplace, built to grow.</h2><p data-i18n="platform.text">Registered clients, architects and manufacturers form the foundation of a moderated catalogue and project-matching workflow available in English and Polish.</p><div class="facts"><div><b>EN / PL</b><span data-i18n="platform.one">Both markets, both languages</span></div><div><b>19</b><span data-i18n="platform.two">Professional roles</span></div><div><b>1</b><span data-i18n="platform.three">Coordinated route to delivery</span></div></div></div></section>
-<section class="closing"><p class="eyebrow" data-i18n="closing.eye">START THE CONVERSATION</p><h2 data-i18n="closing.title">What are you looking to build — or bring to Ireland?</h2><button class="primary open-register" data-role="private_client" data-i18n="closing.cta">Join the SPECTECHNOLOGY network</button></section></main>
-<footer><div><a class="brand footer-brand" href="#top"><img class="logo-light" src="noBgColor-light.png" alt="SPECTECHNOLOGY"><img class="logo-dark" src="noBgColor-dark.png" alt=""></a><p>SPECTECHNOLOGY SPÓŁKA AKCYJNA<br>ul. Fort Wola 22, 01-258 Warszawa, Polska</p></div><div><p>KRS 0001207307 · NIP 5273193733<br>REGON 543323910</p><a href="mailto:office@spectechnology.pl">office@spectechnology.pl</a><div class="legal-links"><a href="privacy.html" data-i18n="legal.privacy">Privacy</a><a href="cookies.html" data-i18n="legal.cookies">Cookies</a><a href="terms.html" data-i18n="legal.terms">Terms & liability</a></div><small class="map-credit">Map graphics: <a href="https://commons.wikimedia.org/wiki/File:Poland_map_flag.svg" target="_blank" rel="noopener">Halibutt</a> / <a href="https://commons.wikimedia.org/wiki/File:Ireland_stub.svg" target="_blank" rel="noopener">PavelD</a>, Wikimedia Commons.</small></div></footer><button class="back-to-top" type="button" aria-label="Back to top">↑</button><aside class="cookie-banner" hidden><p><span data-i18n="cookie.text">We use essential storage for language and theme preferences. With your choice, we may also use functional services such as country suggestion.</span> <a href="cookies.html" data-i18n="cookie.policy">Cookie policy</a>.</p><div class="cookie-actions"><button class="cookie-reject" type="button" data-i18n="cookie.reject">Essential only</button><button class="cookie-accept" type="button" data-i18n="cookie.accept">Accept</button></div></aside>
-<dialog id="registerDialog"><button class="close" aria-label="Close">×</button><p class="eyebrow" data-i18n="form.eye">JOIN THE NETWORK</p><h2 data-i18n="form.title">Tell us where you fit.</h2><form id="registerForm" enctype="multipart/form-data"><div class="form-row"><label><span data-i18n="form.country">Country</span><select name="country"><option value="">—</option><option value="Ireland">Ireland</option><option value="Poland">Poland / Polska</option><option value="Other" data-i18n="form.otherCountry">Other country</option></select></label><label class="other-country" hidden><span data-i18n="form.countryName">Country name</span><input name="other_country"></label></div><label><span data-i18n="form.role">Business role</span><select name="role"><option value="">—</option><option value="private_client" data-i18n="roles.private">Private client / landowner</option><option value="developer" data-i18n="roles.developer">Developer</option><option value="architect" data-i18n="roles.architect">Architect / design studio</option><option value="construction_company" data-i18n="roles.builder">Construction company</option><option value="main_contractor" data-i18n="roles.contractor">Main contractor</option><option value="timber_frame_manufacturer" data-i18n="roles.frameMaker">Timber-frame manufacturer</option><option value="modular_manufacturer" data-i18n="roles.modularMaker">Modular-home manufacturer</option><option value="mobile_home_manufacturer" data-i18n="roles.mobileMaker">Mobile-home manufacturer</option><option value="component_supplier" data-i18n="roles.supplier">Building component supplier</option><option value="installer" data-i18n="roles.installer">Installation company</option><option value="engineer" data-i18n="roles.engineer">Structural / services engineer</option><option value="planning_consultant" data-i18n="roles.planner">Planning consultant</option><option value="surveyor" data-i18n="roles.surveyor">Surveyor / cost consultant</option><option value="logistics" data-i18n="roles.logistics">Transport / logistics provider</option><option value="estate_agent" data-i18n="roles.agent">Estate agent</option><option value="investor" data-i18n="roles.investor">Investor / financial partner</option><option value="public_body" data-i18n="roles.public">Public / institutional buyer</option><option value="industry_association" data-i18n="roles.association">Industry association / media</option><option value="other" data-i18n="roles.other">Other</option></select></label><label class="other-role" hidden><span data-i18n="form.roleName">Describe your role</span><input name="other_role"></label><div class="form-row"><label><span data-i18n="form.name">Name</span><input name="name" autocomplete="name"></label><label><span data-i18n="form.company">Company</span><input name="company" autocomplete="organization"></label></div><label><span>Email <i class="required-mark">*</i></span><input type="email" name="email" autocomplete="email" required></label><label><span><span data-i18n="form.details">Project, service or capability summary</span> <i class="required-mark">*</i></span><textarea name="details" required></textarea></label><label class="upload-field"><span data-i18n="form.files">Photos or documents</span><input type="file" name="attachments[]" multiple accept=".pdf,.doc,.docx,.xml,.xls,.xlsx,.csv,.jpg,.jpeg,.png,.webp"><small class="field-help" data-i18n="form.fileHelp">PDF, Word, XML, Excel/CSV or JPG, PNG, WebP. Up to 5 files, 10 MB each. Executables and scripts are not accepted.</small></label><label class="check"><input type="checkbox" name="consent" value="1" required><span data-i18n="form.consent">I agree that SPECTECHNOLOGY may contact me about this registration.</span><i class="required-mark">*</i></label><p class="required-note" data-i18n="form.requiredNote">* Required fields</p><input type="hidden" name="language" value="en"><button class="primary submit" type="submit" data-i18n="form.submit">Register</button><p id="formStatus" aria-live="polite"></p></form></dialog></body></html>
-
-
-
-
-
-
-
+?>
+<!doctype html>
+<html lang="<?=$lang?>" data-forced-lang="<?=$lang?>">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="/">
+<title>
+<?=htmlspecialchars($title,ENT_QUOTES,'UTF-8')?>
+</title>
+<meta name="description" content="<?=htmlspecialchars($description,ENT_QUOTES,'UTF-8')?>">
+<meta name="theme-color" content="#10241d">
+<link rel="canonical" href="<?=$canonical?>">
+<link rel="alternate" hreflang="en" href="https://spectechnology.pl/en/">
+<link rel="alternate" hreflang="pl" href="https://spectechnology.pl/pl/">
+<link rel="alternate" hreflang="x-default" href="https://spectechnology.pl/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SPECTECHNOLOGY">
+<meta property="og:locale" content="<?=$lang==='pl'?'pl_PL':'en_IE'?>">
+<meta property="og:title" content="<?=htmlspecialchars($title,ENT_QUOTES,'UTF-8')?>">
+<meta property="og:description" content="<?=htmlspecialchars($description,ENT_QUOTES,'UTF-8')?>">
+<meta property="og:url" content="<?=$canonical?>">
+<meta property="og:image" content="https://spectechnology.pl/assets/images/hero-ireland-1200.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?=htmlspecialchars($title,ENT_QUOTES,'UTF-8')?>">
+<meta name="twitter:description" content="<?=htmlspecialchars($description,ENT_QUOTES,'UTF-8')?>">
+<meta name="twitter:image" content="https://spectechnology.pl/assets/images/hero-ireland-1200.webp">
+<script type="application/ld+json">
+<?=json_encode($organization,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE)?>
+</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310241d'/%3E%3Cpath d='M12 35 32 17l20 18v14H39V35H25v14H12z' fill='%23c8f169'/%3E%3C/svg%3E">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('spectechnology-theme')==='dark'?'dark':'light'}catch(e){}</script>
+<link rel="stylesheet" href="/assets/site-prod.css">
+<link rel="stylesheet" href="/assets/assistant.css">
+<script src="/assets/site-prod.js" defer>
+</script>
+<script src="/assets/assistant.js" defer>
+</script>
+</head>
+<body>
+<header class="site-header">
+<a class="brand" href="#top">
+<img class="logo-light" src="noBgColor-light.png" alt="SPECTECHNOLOGY S.A.">
+<img class="logo-dark" src="noBgColor-dark.png" alt="">
+</a>
+<nav>
+<a href="#infographic" data-i18n="nav.how">How it works</a>
+<a href="#network" data-i18n="nav.for">Who it is for</a>
+<a href="#ireland">Ireland</a>
+<a href="#news" data-i18n="nav.news">News</a>
+<a href="#insights" data-i18n="nav.insights">Insights</a>
+</nav>
+<div class="header-actions">
+<div class="language">
+<button data-lang="en" class="active">EN</button>
+<button data-lang="pl">PL</button>
+</div>
+<button class="theme-toggle" type="button" aria-label="Use dark theme">☾</button>
+<a class="outline login-link" href="/login.php" data-i18n="nav.login">Sign in</a>
+<button class="outline open-register" data-role="private_client" data-i18n="nav.join">Join the network</button>
+<button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+</div>
+</header>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<button class="menu-close" aria-label="Close menu">×</button>
+<a class="mobile-login" href="/login.php" data-i18n="nav.login">Sign in</a>
+<a href="#infographic" data-i18n="nav.how">How it works</a>
+<a href="#network" data-i18n="nav.for">Who it is for</a>
+<a href="#ireland">Ireland</a>
+<a href="#news" data-i18n="nav.news">News</a>
+<a href="#insights" data-i18n="nav.insights">Insights</a>
+<button class="primary open-register" data-role="private_client" data-i18n="nav.join">Join the network</button>
+</div>
+<main id="top">
+<section class="hero">
+<picture>
+<source type="image/webp" srcset="/assets/images/hero-ireland-720.webp 720w, /assets/images/hero-ireland-1200.webp 1200w, /assets/images/hero-ireland-1672.webp 1672w" sizes="100vw">
+<img src="/assets/images/hero-ireland.png" width="1672" height="941" alt="Contemporary timber-frame home in Ireland" fetchpriority="high" decoding="async">
+</picture>
+<div class="shade">
+</div>
+<div class="hero-copy">
+<p class="eyebrow" data-i18n="hero.eye">POLAND × IRELAND · TIMBER-FRAME HOMES</p>
+<h1 data-i18n="hero.title">Designed in Ireland. Made in Poland.</h1>
+<p data-i18n="hero.text">We connect Irish clients and architects with Polish manufacturers who engineer and produce bespoke timber-frame house kits for delivery and installation in Ireland.</p>
+<div class="actions">
+<button class="primary open-register" data-role="private_client" data-i18n="hero.project">I have a project</button>
+<button class="glass open-register" data-role="timber_frame_manufacturer" data-i18n="hero.maker">I manufacture in Poland</button>
+</div>
+</div>
+<div class="hero-note hero-route">
+<span class="country-map">
+<img src="assets/images/poland-flag-map.svg" alt="Poland">
+</span>
+<span class="route-arrow">→</span>
+<span class="country-map ireland-map">
+<img src="assets/images/ireland-flag-map.svg" alt="Ireland">
+</span>
+<span data-i18n="hero.note">One route from architectural brief to installed structure.</span>
+</div>
+</section>
+<section class="intro layout">
+<span class="index" data-i18n="sections.bridge">01 — THE BRIDGE</span>
+<div>
+<h2 data-i18n="intro.title">Not a crew sent abroad. A home engineered before it travels.</h2>
+<p data-i18n="intro.text">The concept starts in Ireland. A qualified Polish partner translates it into a compliant timber-frame package, manufactures it under controlled conditions and prepares it for transport and efficient on-site assembly.</p>
+</div>
+</section>
+<section id="how" class="split dark">
+<div class="photo">
+<picture>
+<source type="image/webp" srcset="/assets/images/factory-poland-720.webp 720w, /assets/images/factory-poland-1200.webp 1200w, /assets/images/factory-poland-1448.webp 1448w" sizes="(max-width:960px) 100vw, 54vw">
+<img src="/assets/images/factory-poland.png" width="1448" height="1086" alt="Timber-frame panel production in Poland" loading="lazy" decoding="async">
+</picture>
+</div>
+<div class="split-copy">
+<p class="eyebrow" data-i18n="process.eye">MADE TO THE IRISH BRIEF</p>
+<h2 data-i18n="process.title">A controlled manufacturing process in Poland.</h2>
+<ol>
+<li>
+<b>01</b>
+<div>
+<strong data-i18n="process.a">Qualify the project</strong>
+<p data-i18n="process.at">Site, brief, programme and budget.</p>
+</div>
+</li>
+<li>
+<b>02</b>
+<div>
+<strong data-i18n="process.b">Align the design</strong>
+<p data-i18n="process.bt">Architect, manufacturer and Irish requirements.</p>
+</div>
+</li>
+<li>
+<b>03</b>
+<div>
+<strong data-i18n="process.c">Manufacture the kit</strong>
+<p data-i18n="process.ct">Bespoke frame and panels produced in Poland.</p>
+</div>
+</li>
+<li>
+<b>04</b>
+<div>
+<strong data-i18n="process.d">Deliver and install</strong>
+<p data-i18n="process.dt">Planned transport and assembly in Ireland.</p>
+</div>
+</li>
+</ol>
+</div>
+</section>
+<section id="network" class="network layout">
+<span class="index" data-i18n="sections.network">02 — NETWORK</span>
+<div>
+<h2 data-i18n="network.title">One platform. Three ways in.</h2>
+<div class="cards">
+<article>
+<small data-i18n="network.irelandTag">IRELAND</small>
+<h3 data-i18n="network.client">Clients & developers</h3>
+<p data-i18n="network.clientText">Bring a site, a need or a concept. We identify a suitable production route and Polish partners.</p>
+<button class="link open-register" data-role="private_client" data-i18n="network.clientCta">Register a project →</button>
+</article>
+<article>
+<small data-i18n="network.irelandTag">IRELAND</small>
+<h3 data-i18n="network.arch">Architects</h3>
+<p data-i18n="network.archText">Include real Polish manufacturing capabilities, systems and logistics from the first concept.</p>
+<button class="link open-register" data-role="architect" data-i18n="network.archCta">Join as an architect →</button>
+</article>
+<article>
+<small data-i18n="network.worldTag">POLAND + WORLD</small>
+<h3 data-i18n="network.maker">Manufacturers & partners</h3>
+<p data-i18n="network.makerText">Present your capability, references and documentation to qualified project enquiries.</p>
+<button class="link open-register" data-role="timber_frame_manufacturer" data-i18n="network.makerCta">Become a partner →</button>
+</article>
+</div>
+</div>
+</section>
+<section class="transport">
+<picture>
+<source type="image/webp" srcset="/assets/images/poland-ireland-logistics-720.webp 720w, /assets/images/poland-ireland-logistics-1200.webp 1200w, /assets/images/poland-ireland-logistics-1942.webp 1942w" sizes="100vw">
+<img src="/assets/images/poland-ireland-logistics.png" width="1942" height="809" alt="Modular home transported from Poland to Ireland" loading="lazy" decoding="async">
+</picture>
+<div>
+<p class="eyebrow" data-i18n="transport.route">POLAND → IRELAND</p>
+<h2 data-i18n="transport.title">The house travels. The process stays connected.</h2>
+<p data-i18n="transport.text">SPECTECHNOLOGY coordinates the commercial and technical dialogue between the Irish brief and the Polish production team.</p>
+</div>
+</section>
+<section id="ireland" class="split garden">
+<div class="photo">
+<picture>
+<source type="image/webp" srcset="/assets/images/auxiliary-home-ireland-720.webp 720w, /assets/images/auxiliary-home-ireland-1200.webp 1200w, /assets/images/auxiliary-home-ireland-1448.webp 1448w" sizes="(max-width:960px) 100vw, 54vw">
+<img src="/assets/images/auxiliary-home-ireland.png" width="1448" height="1086" alt="Compact auxiliary home in an Irish garden" loading="lazy" decoding="async">
+</picture>
+</div>
+<div class="split-copy">
+<p class="eyebrow" data-i18n="garden.eye">A NEW IRISH OPPORTUNITY</p>
+<h2 data-i18n="garden.title">Compact auxiliary homes, ready for a smarter supply chain.</h2>
+<p data-i18n="garden.text">Ireland has introduced an exempted-development route for certain detached auxiliary homes, while building regulations and detailed site conditions still apply.</p>
+<div class="policy">
+<b>32–45 m²</b>
+<span data-i18n="garden.note">floor-area range — eligibility must be checked for each property</span>
+</div>
+<a href="https://www.gov.ie/en/department-of-housing-local-government-and-heritage/press-releases/government-announces-changes-to-planning-exemptions-regulations/" target="_blank" rel="noopener" data-i18n="garden.source">Official government information ↗</a>
+</div>
+</section>
+<section id="news" class="news layout">
+<span class="index" data-i18n="sections.news">04 — NEWS & EVENTS</span>
+<div>
+<h2 data-i18n="news.title">Where the market meets next.</h2>
+<p class="news-lead" data-i18n="news.lead">Upcoming events and recent developments relevant to timber-frame and off-site housing in Poland and Ireland.</p>
+<h3 class="subhead" data-i18n="news.events">Upcoming events</h3>
+<div class="event-grid">
+<article class="event">
+<span>03–04.10.2026 · CO MAYO</span>
+<h3>Selfbuild Extend & Renovate Connacht</h3>
+<p data-i18n="news.connacht">Homebuilding, renovation, planning and supplier event at the Connacht GAA Air Dome.</p>
+<a class="read-more" data-article="selfbuild-connacht-2026" target="_blank" rel="noopener" data-i18n="news.readMore">Learn more →</a>
+</article>
+<article class="event featured">
+<span>07–08.10.2026 · DUBLIN</span>
+<h3>Architecture & Building Expo</h3>
+<p data-i18n="news.archExpo">A strategic meeting point for architects, architectural technologists, specifiers and construction suppliers.</p>
+<a class="read-more" data-article="architecture-expo-2026" target="_blank" rel="noopener" data-i18n="news.readMore">Learn more →</a>
+</article>
+<article class="event">
+<span>17.10.2026 · WARSZAWA</span>
+<h3>BUILD BRIDGE FORUM — Polsko-Ukraińskie Forum Budowlane</h3>
+<p data-i18n="news.buildBridge">Polish and Ukrainian construction companies, manufacturers, contractors, investors and developers meet for presentations and B2B cooperation.</p>
+<a class="read-more" data-article="build-bridge-2026" target="_blank" rel="noopener" data-i18n="news.readMore">Learn more →</a>
+</article>
+<article class="event">
+<span>07–08.11.2026 · LISBURN</span>
+<h3>Selfbuild Extend & Renovate Ulster</h3>
+<p data-i18n="news.ulster">Suppliers, expert talks and practical guidance for new-build and renovation projects.</p>
+<a class="read-more" data-article="selfbuild-ulster-2026" target="_blank" rel="noopener" data-i18n="news.readMore">Learn more →</a>
+</article>
+<article class="event featured">
+<span>12–13.11.2026 · WARSZAWA</span>
+<h3>ReBuild Ukraine: Construction & Energy</h3>
+<p data-i18n="news.rebuild">International exhibition and conference for recovery projects, housing, infrastructure, energy and investment.</p>
+<a class="read-more" data-article="rebuild-ukraine-2026" target="_blank" rel="noopener" data-i18n="news.readMore">Learn more →</a>
+</article>
+<article class="event">
+<span>09–10.01.2027 · LIMERICK</span>
+<h3>Selfbuild Extend & Renovate Munster</h3>
+<p data-i18n="news.munster">The next Irish self-build event for homeowners, designers and suppliers.</p>
+<a class="read-more" data-article="selfbuild-munster-2027" target="_blank" rel="noopener" data-i18n="news.readMore">Learn more →</a>
+</article>
+<article class="event">
+<span>06–07.02.2027 · DUBLIN</span>
+<h3>Selfbuild Extend & Renovate Leinster</h3>
+<p data-i18n="news.leinster">A Dublin event focused on homebuilding, costs, planning, systems and professional advice.</p>
+<a class="read-more" data-article="selfbuild-leinster-2027" target="_blank" rel="noopener" data-i18n="news.readMore">Learn more →</a>
+</article>
+</div>
+<h3 class="subhead" data-i18n="news.archive">Past events</h3>
+<div class="event-grid event-archive">
+<article class="event past">
+<span>19–20.09.2026 · GLIWICE</span>
+<h3>Śląskie Targi Domów Szkieletowych, Modułowych i Mobilnych</h3>
+<p>PreZero Arena Gliwice · ul. Akademicka 50</p>
+<a class="read-more" data-article="gliwice-2026" target="_blank" rel="noopener" data-i18n="news.readMore">Learn more →</a>
+</article>
+<article class="event past">
+<span>25–27.09.2026 · POZNAŃ</span>
+<h3>Wielkie Targi Domów Szkieletowych, Modułowych i Mobilnych</h3>
+<p data-i18n="news.poznan">A major Polish meeting point for manufacturers, buyers and modern-home technologies.</p>
+<a class="read-more" data-article="poznan-2026" target="_blank" rel="noopener" data-i18n="news.readMore">Learn more →</a>
+</article>
+</div>
+<h3 class="subhead" data-i18n="news.latest">Latest market news</h3>
+<div class="news-grid">
+<a data-article="yardbox-bothan" target="_blank" rel="noopener">
+<span>10.09.2026 · IRELAND</span>
+<h3>YardBox launches the Bothán modular garden home</h3>
+<p data-i18n="news.n1">A design-led compact dwelling enters the market as Irish planning rules evolve.</p>
+<span class="read-more" data-i18n="news.readMore">Learn more →</span>
+</a>
+<a data-article="glenveagh-mmc" target="_blank" rel="noopener">
+<span>19.08.2026 · IRELAND</span>
+<h3>€859k for scaling modern construction</h3>
+<p data-i18n="news.n2">Enterprise Ireland backs timber-frame, light-gauge steel and automated finishing R&D.</p>
+<span class="read-more" data-i18n="news.readMore">Learn more →</span>
+</a>
+<a data-article="irish-one-off-growth" target="_blank" rel="noopener">
+<span>20.07.2026 · IRELAND</span>
+<h3>Timber-frame one-off starts rise 22%</h3>
+<p data-i18n="news.n3">Timber-frame starts increased from 83 to 101 homes in the first half of 2026.</p>
+<span class="read-more" data-i18n="news.readMore">Learn more →</span>
+</a>
+<a data-article="garden-homes-debate" target="_blank" rel="noopener">
+<span>14.07.2026 · IRELAND</span>
+<h3>Debate around garden modular homes</h3>
+<p data-i18n="news.n4">New supply opportunities arrive alongside questions about standards and tenant protections.</p>
+<span class="read-more" data-i18n="news.readMore">Learn more →</span>
+</a>
+</div>
+</div>
+</section>
+<section id="insights" class="insights">
+<div>
+<p class="eyebrow" data-i18n="insights.eye">MARKET SIGNALS</p>
+<h2 data-i18n="insights.title">Why the Poland–Ireland bridge matters now.</h2>
+</div>
+<div class="insight-list">
+<article>
+<b>+36%</b>
+<p data-i18n="insights.i1">Latest available H1 2026 comparison: Irish one-off housing starts rose 36%.</p>
+</article>
+<article>
+<b>+22%</b>
+<p data-i18n="insights.i2">Growth in timber-frame starts within that segment.</p>
+</article>
+<article>
+<b>32–45 m²</b>
+<p data-i18n="insights.i3">Auxiliary-dwelling opportunity, subject to site and regulatory conditions.</p>
+</article>
+</div>
+</section>
+<section class="platform layout">
+<span class="index" data-i18n="sections.platform">05 — PLATFORM</span>
+<div>
+<h2 data-i18n="platform.title">A bilingual marketplace, built to grow.</h2>
+<p data-i18n="platform.text">Registered clients, architects and manufacturers form the foundation of a moderated catalogue and project-matching workflow available in English and Polish.</p>
+<div class="facts">
+<div>
+<b>EN / PL</b>
+<span data-i18n="platform.one">Both markets, both languages</span>
+</div>
+<div>
+<b>19</b>
+<span data-i18n="platform.two">Professional roles</span>
+</div>
+<div>
+<b>1</b>
+<span data-i18n="platform.three">Coordinated route to delivery</span>
+</div>
+</div>
+</div>
+</section>
+<section id="infographic" class="infographic-section layout">
+<span class="index" data-i18n="sections.infographic">06 — HOW IT WORKS</span>
+<div>
+<p class="eyebrow" data-i18n="infographic.eye">THE CROSS-BORDER BUILDING BRIDGE</p>
+<h2 data-i18n="infographic.title">See the whole process on one page.</h2>
+<p class="infographic-lead" data-i18n="infographic.text">From the Irish brief and design team to Polish factory production, documented logistics and installation in Ireland.</p>
+<button class="infographic-preview" type="button" aria-controls="infographicDialog">
+<picture>
+<source media="(max-width:700px)" srcset="/assets/images/spectechnology-business-infographic-en.png">
+<img src="/assets/images/spectechnology-business-infographic-landscape-en.png" alt="SPECTECHNOLOGY cross-border building process infographic" loading="lazy">
+</picture>
+<span data-i18n="infographic.open">Open full screen</span>
+</button>
+<a class="primary infographic-download" data-infographic-download href="/assets/images/spectechnology-business-infographic-landscape-en.png" download="SPECTECHNOLOGY-how-it-works-landscape.png" data-i18n="infographic.download">Download infographic</a>
+</div>
+</section>
+<section class="closing">
+<p class="eyebrow" data-i18n="closing.eye">START THE CONVERSATION</p>
+<h2 data-i18n="closing.title">What are you looking to build — or bring to Ireland?</h2>
+<button class="primary open-register" data-role="private_client" data-i18n="closing.cta">Join the SPECTECHNOLOGY network</button>
+</section>
+</main>
+<footer>
+<div>
+<a class="brand footer-brand" href="#top">
+<img class="logo-light" src="noBgColor-light.png" alt="SPECTECHNOLOGY">
+<img class="logo-dark" src="noBgColor-dark.png" alt="">
+</a>
+<p>SPECTECHNOLOGY SPÓŁKA AKCYJNA<br>ul. Fort Wola 22, 01-258 Warszawa, Polska</p>
+</div>
+<div>
+<p>KRS 0001207307 · NIP 5273193733<br>REGON 543323910</p>
+<a href="mailto:office@spectechnology.pl">office@spectechnology.pl</a>
+<div class="legal-links">
+<a href="privacy.html" data-i18n="legal.privacy">Privacy</a>
+<a href="cookies.html" data-i18n="legal.cookies">Cookies</a>
+<a href="terms.html" data-i18n="legal.terms">Terms & liability</a>
+</div>
+<small class="map-credit">Map graphics: <a href="https://commons.wikimedia.org/wiki/File:Poland_map_flag.svg" target="_blank" rel="noopener">Halibutt</a> / <a href="https://commons.wikimedia.org/wiki/File:Ireland_stub.svg" target="_blank" rel="noopener">PavelD</a>, Wikimedia Commons.</small>
+</div>
+</footer>
+<button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+<aside class="cookie-banner" hidden>
+<p>
+<span data-i18n="cookie.text">We use essential storage for language and theme preferences. With your choice, we may also use functional services such as country suggestion.</span> <a href="cookies.html" data-i18n="cookie.policy">Cookie policy</a>.</p>
+<div class="cookie-actions">
+<button class="cookie-reject" type="button" data-i18n="cookie.reject">Essential only</button>
+<button class="cookie-accept" type="button" data-i18n="cookie.accept">Accept</button>
+</div>
+</aside>
+<dialog id="registerDialog">
+<button class="close" aria-label="Close">×</button>
+<p class="eyebrow" data-i18n="form.eye">JOIN THE NETWORK</p>
+<h2 data-i18n="form.title">Tell us where you fit.</h2>
+<form id="registerForm" enctype="multipart/form-data">
+<div class="form-row">
+<label>
+<span data-i18n="form.country">Country</span>
+<select name="country">
+<option value="">—</option>
+<option value="Ireland">Ireland</option>
+<option value="Poland">Poland / Polska</option>
+<option value="Other" data-i18n="form.otherCountry">Other country</option>
+</select>
+</label>
+<label class="other-country" hidden>
+<span data-i18n="form.countryName">Country name</span>
+<input name="other_country">
+</label>
+</div>
+<label>
+<span data-i18n="form.role">Business role</span>
+<select name="role">
+<option value="">—</option>
+<option value="private_client" data-i18n="roles.private">Private client / landowner</option>
+<option value="developer" data-i18n="roles.developer">Developer</option>
+<option value="architect" data-i18n="roles.architect">Architect / design studio</option>
+<option value="construction_company" data-i18n="roles.builder">Construction company</option>
+<option value="main_contractor" data-i18n="roles.contractor">Main contractor</option>
+<option value="timber_frame_manufacturer" data-i18n="roles.frameMaker">Timber-frame manufacturer</option>
+<option value="modular_manufacturer" data-i18n="roles.modularMaker">Modular-home manufacturer</option>
+<option value="mobile_home_manufacturer" data-i18n="roles.mobileMaker">Mobile-home manufacturer</option>
+<option value="component_supplier" data-i18n="roles.supplier">Building component supplier</option>
+<option value="installer" data-i18n="roles.installer">Installation company</option>
+<option value="engineer" data-i18n="roles.engineer">Structural / services engineer</option>
+<option value="planning_consultant" data-i18n="roles.planner">Planning consultant</option>
+<option value="surveyor" data-i18n="roles.surveyor">Surveyor / cost consultant</option>
+<option value="logistics" data-i18n="roles.logistics">Transport / logistics provider</option>
+<option value="estate_agent" data-i18n="roles.agent">Estate agent</option>
+<option value="investor" data-i18n="roles.investor">Investor / financial partner</option>
+<option value="public_body" data-i18n="roles.public">Public / institutional buyer</option>
+<option value="industry_association" data-i18n="roles.association">Industry association / media</option>
+<option value="other" data-i18n="roles.other">Other</option>
+</select>
+</label>
+<label class="other-role" hidden>
+<span data-i18n="form.roleName">Describe your role</span>
+<input name="other_role">
+</label>
+<div class="form-row">
+<label>
+<span data-i18n="form.name">Name</span>
+<input name="name" autocomplete="name">
+</label>
+<label>
+<span data-i18n="form.company">Company</span>
+<input name="company" autocomplete="organization">
+</label>
+</div>
+<label>
+<span>Email <i class="required-mark">*</i>
+</span>
+<input type="email" name="email" autocomplete="email" required>
+</label>
+<label>
+<span>
+<span data-i18n="form.details">Project, service or capability summary</span> <i class="required-mark">*</i>
+</span>
+<textarea name="details" required>
+</textarea>
+</label>
+<label class="upload-field">
+<span data-i18n="form.files">Photos or documents</span>
+<input type="file" name="attachments[]" multiple accept=".pdf,.doc,.docx,.xml,.xls,.xlsx,.csv,.jpg,.jpeg,.png,.webp">
+<small class="field-help" data-i18n="form.fileHelp">PDF, Word, XML, Excel/CSV or JPG, PNG, WebP. Up to 5 files, 10 MB each. Executables and scripts are not accepted.</small>
+</label>
+<label class="check">
+<input type="checkbox" name="consent" value="1" required>
+<span data-i18n="form.consent">I agree that SPECTECHNOLOGY may contact me about this registration.</span>
+<i class="required-mark">*</i>
+</label>
+<p class="required-note" data-i18n="form.requiredNote">* Required fields</p>
+<input type="hidden" name="language" value="en">
+<button class="primary submit" type="submit" data-i18n="form.submit">Register</button>
+<p id="formStatus" aria-live="polite">
+</p>
+</form>
+</dialog>
+<button class="assistant-launcher" type="button" aria-controls="assistantPanel" aria-expanded="false">
+<span class="assistant-launcher-icon">?</span>
+<span>
+<?=$lang==='pl'?'Zapytaj nas':'Ask us'?>
+</span>
+</button>
+<aside class="assistant-panel" id="assistantPanel" hidden aria-label="SPECTECHNOLOGY assistant">
+<div class="assistant-shell">
+<header class="assistant-head">
+<div>
+<strong>SPECTECHNOLOGY</strong>
+<small>
+<?=$lang==='pl'?'Asystent projektu':'Project assistant'?>
+</small>
+</div>
+<button class="assistant-close" type="button" aria-label="Close">×</button>
+</header>
+<div class="assistant-log" aria-live="polite">
+<div class="assistant-options">
+</div>
+</div>
+<div>
+<form class="assistant-contact" hidden>
+<input name="name" autocomplete="name" placeholder="<?=$lang==='pl'?'Imię':'Name'?>">
+<input type="email" name="email" autocomplete="email" required placeholder="Email *">
+<input type="tel" name="phone" autocomplete="tel" placeholder="<?=$lang==='pl'?'Telefon (opcjonalnie)':'Phone (optional)'?>">
+<label class="assistant-consent">
+<input type="checkbox" name="consent" value="1" required>
+<span>
+<?=$lang==='pl'?'Zgadzam się na kontakt w sprawie tej rozmowy.':'I agree to be contacted about this conversation.'?>
+</span>
+</label>
+<button type="submit">
+<?=$lang==='pl'?'Wyślij do zespołu':'Send to the team'?>
+</button>
+</form>
+<form class="assistant-compose">
+<div class="assistant-compose-row">
+<input class="assistant-input" maxlength="1000" aria-label="Message">
+<button class="assistant-send" type="submit" aria-label="Send">→</button>
+</div>
+<p class="assistant-note">
+</p>
+</form>
+</div>
+</div>
+</aside>
+<dialog id="infographicDialog" class="infographic-dialog">
+<div class="infographic-dialog-bar">
+<strong data-i18n="infographic.dialogTitle">How the SPECTECHNOLOGY bridge works</strong>
+<div>
+<a data-infographic-download href="/assets/images/spectechnology-business-infographic-landscape-en.png" download="SPECTECHNOLOGY-how-it-works-landscape.png" data-i18n="infographic.download">Download</a>
+<button class="infographic-close" type="button" aria-label="Close">×</button>
+</div>
+</div>
+<picture>
+<source media="(max-width:700px)" srcset="/assets/images/spectechnology-business-infographic-en.png">
+<img src="/assets/images/spectechnology-business-infographic-landscape-en.png" alt="SPECTECHNOLOGY cross-border building process infographic">
+</picture>
+</dialog>
+</body>
+</html>
 
 
 
